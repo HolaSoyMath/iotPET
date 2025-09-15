@@ -48,20 +48,43 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
           <p className="mb-2">{index + 1}ª Refeição</p>
           <div className="relative rounded-full border px-2 flex items-center">
             <Clock
-              className={`${time ? "text-primary" : "text-muted-foreground"} cursor-pointer mr-1`}
+              className={`${
+                time ? "text-primary" : "text-muted-foreground"
+              } cursor-pointer mr-1`}
               onClick={handleClockClick}
             />
 
+            {!time && !focused && (
+              <span
+                aria-hidden
+                className="pointer-events-none absolute left-9 text-muted-foreground select-none"
+              >
+                --:--
+              </span>
+            )}
+
             <Input
               ref={timeInputRef}
-              type={time || focused ? "time" : "text"}
+              type="time"
               value={time || ""}
               onChange={(e) => handleTimeChange(e.target.value)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               onClick={handleClockClick}
-              placeholder="--:--"
-              className="border-0 bg-transparent pl-0 [&::-webkit-calendar-picker-indicator]:hidden"
+              className={[
+                "border-0 bg-transparent pl-0",
+                "[&::-webkit-calendar-picker-indicator]:hidden",
+                !time && !focused
+                  ? [
+                      "text-transparent caret-transparent",
+                      "[&::-webkit-datetime-edit-fields-wrapper]:text-transparent",
+                      "[&::-webkit-datetime-edit-hour-field]:text-transparent",
+                      "[&::-webkit-datetime-edit-minute-field]:text-transparent",
+                      "[&::-webkit-datetime-edit-second-field]:text-transparent",
+                      "[&::-webkit-datetime-edit-text]:text-transparent",
+                    ].join(" ")
+                  : "",
+              ].join(" ")}
             />
           </div>
         </div>
