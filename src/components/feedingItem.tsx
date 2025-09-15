@@ -47,7 +47,9 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
           <p className="mb-2">{index + 1}ª Refeição</p>
           <div className="rounded-full border-1 border-muted-foreground px-2 flex items-center">
             <Clock
-              className={`${time ? "text-primary" : "text-muted-foreground"} cursor-pointer mr-1`}
+              className={`${
+                time ? "text-primary" : "text-muted-foreground"
+              } cursor-pointer mr-1`}
               onClick={handleClockClick}
             />
             <Input
@@ -77,14 +79,16 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
           </div>
         </div>
       </div>
-      <div className="flex items-end mb-3">
-        <Button
-          className="bg-transparent border-0 shadow-none"
-          onClick={() => deleteItem()}
-        >
-          <Trash className="text-destructive" />
-        </Button>
-      </div>
+      {feedingList.length > 2 && (
+        <div className="flex items-end mb-3">
+          <Button
+            className="bg-transparent border-0 shadow-none"
+            onClick={() => deleteItem()}
+          >
+            <Trash className="text-destructive" />
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
