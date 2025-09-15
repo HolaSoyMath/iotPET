@@ -28,7 +28,7 @@ export function FeedingList() {
           className="rounded-full bg-secondary h-10 w-10"
           onClick={handleAddFeeding}
         >
-          <Plus />
+          <Plus className="text-black" />
         </Button>
       </div>
       <div className="mt-4">
@@ -41,7 +41,7 @@ export function FeedingList() {
           />
         ))}
       </div>
-      <Button className="w-full rounded-full bg-secondary text-primary-foreground mt-2">
+      <Button className="w-full rounded-full bg-secondary text-black mt-2">
         Salvar
       </Button>
     </div>

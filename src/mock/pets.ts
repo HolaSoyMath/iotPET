@@ -24,7 +24,12 @@ export const pets: PetInfoType[] = [
     type: "Vira-Lata",
     image: "/bonnie.png",
     gender: "Feminino",
-    age: 5,
-    lastFeeding: new Date("2025-09-13T13:40:00-03:00"),
+    age: 10,
+    lastFeeding: minutesAgo(8),
   },
 ];
+
+
+function minutesAgo(min: number): Date {
+  return new Date(Date.now() - min * 60_000);
+}

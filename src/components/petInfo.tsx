@@ -39,7 +39,7 @@ export function PetInfo({ pet }: { pet: PetInfoType }) {
             style={{ width: "36px", height: "36px", objectFit: "cover" }}
           />
           <div>
-            <p className="font-bold">{pet.name}</p>
+            <p>{pet.name}</p>
             <p className="text-muted-foreground text-xs">{pet.type}</p>
           </div>
         </div>
@@ -51,20 +51,20 @@ export function PetInfo({ pet }: { pet: PetInfoType }) {
           style={{ width: "16px", height: "16px" }}
         />
       </div>
-      <div className="flex flex-row justify-between items-center my-3">
+      <div className="flex flex-row gap-3 my-3">
         <div>
-          <p className="text-muted-foreground text-xs font-light">Gênero</p>
-          <p className="font-semibold">{pet.gender}</p>
+          <p className="text-muted-foreground text-xs font-light w-14">Gênero</p>
+          <p className="text-sm">{pet.gender}</p>
         </div>
         <div>
-          <p className="text-muted-foreground text-xs font-light">Idade</p>
-          <p className="font-semibold">{pet.age} anos</p>
+          <p className="text-muted-foreground text-xs font-light w-14">Idade</p>
+          <p className="text-sm">{pet.age} anos</p>
         </div>
         <div>
           <p className="text-muted-foreground text-xs font-light">
             Última Alimentação
           </p>
-          <p className="font-semibold">{timeSinceLastFeeding}</p>
+          <p className="text-sm">{timeSinceLastFeeding}</p>
         </div>
       </div>
     </>
