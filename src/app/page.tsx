@@ -3,8 +3,6 @@ import { PetInfo } from "@/components/petInfo";
 import { pets } from "@/mock/pets";
 import Image from "next/image";
 import { FeedingProvider } from "@/contexts/feedingProvider";
-import { Button } from "@/components/ui/button";
-import { Power } from "lucide-react";
 import { FeedingActivate } from "@/components/feedingActivate";
 
 export default function Home() {
@@ -18,7 +16,7 @@ export default function Home() {
         className="w-full h-48 bg-chart-1 rounded-3xl relative"
         style={{ backgroundImage: "url('/homeCard.png')" }}
       >
-        <h1 className="text-xl font-bold text-secondary w-full text-center uppercase font-montserrat pt-4">
+        <h1 className="text-xl font-extrabold text-secondary w-full text-center uppercase font-montserrat pt-4">
           tigela cheia pet feliz
         </h1>
         <div className="flex justify-center">
