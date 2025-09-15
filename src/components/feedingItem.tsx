@@ -4,7 +4,7 @@ import { Bone, Clock, Trash } from "lucide-react";
 import { Input } from "./ui/input";
 import { useFeedingContext } from "@/contexts/feedingProvider";
 import { Button } from "./ui/button";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 type FeedingItemProps = {
   index: number;
@@ -15,6 +15,7 @@ type FeedingItemProps = {
 export function FeedingItem({ index, time, weight }: FeedingItemProps) {
   const { feedingList, setFeedingList } = useFeedingContext();
   const timeInputRef = useRef<HTMLInputElement>(null);
+  const [focused, setFocused] = useState(false);
 
   function handleTimeChange(value: string) {
     setFeedingList((prev) =>
@@ -45,21 +46,30 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
       <div className="grid grid-cols-2 gap-4 flex-1">
         <div className="flex-1">
           <p className="mb-2">{index + 1}ª Refeição</p>
-          <div className="rounded-full border-1 border-muted-foreground px-2 flex items-center">
+          <div className="relative rounded-full border px-2 flex items-center">
             <Clock
-              className={`${
-                time ? "text-primary" : "text-muted-foreground"
-              } cursor-pointer mr-1`}
+              className={`${time ? "text-primary" : "text-muted-foreground"} cursor-pointer mr-1`}
               onClick={handleClockClick}
             />
+
+            {!time && !focused && (
+              <span
+                aria-hidden
+                className="pointer-events-none absolute left-8 text-muted-foreground select-none"
+              >
+                --:--
+              </span>
+            )}
+
             <Input
               ref={timeInputRef}
-              className="border-none [&::-webkit-calendar-picker-indicator]:hidden"
-              value={time || ""}
-              placeholder="--:--"
-              onChange={(e) => handleTimeChange(e.target.value)}
               type="time"
+              value={time || ""}
+              onChange={(e) => handleTimeChange(e.target.value)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
               onClick={handleClockClick}
+              className="border-0 bg-transparent pl-0 [&::-webkit-calendar-picker-indicator]:hidden"
             />
           </div>
         </div>
