@@ -46,7 +46,7 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
       <div className="grid grid-cols-2 gap-4 flex-1">
         <div className="flex-1">
           <p className="mb-2">{index + 1}ª Refeição</p>
-          <div className="relative rounded-full border px-2 flex items-center">
+          <div className="relative rounded-full border-muted-foreground border-1 px-2 flex items-center">
             <Clock
               className={`${
                 time ? "text-primary" : "text-muted-foreground"
