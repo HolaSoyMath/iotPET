@@ -19,9 +19,9 @@ export function FeedingActivate() {
     <>
       <h2 className="text-xl font-semibold mb-4">Ativar Comedouro</h2>
       <div
-        className={`w-full ${isActive ? "bg-lime-200" : "bg-secondary"} py-2 px-2 rounded-lg h-16 duration-300`}
+        className={`w-full ${isActive ? "bg-lime-200" : "bg-secondary"} py-2 px-2 rounded-lg h-16 duration-300 hover:bg-secondary/60`}
       >
-        <Button className={`${isActive ? "bg-lime-200" : "bg-white"} w-full h-full shadow-none`} onClick={() => handleClick()}>
+        <Button className={`${isActive ? "bg-lime-200" : "bg-white"} w-full h-full shadow-none cursor-pointer hover:bg-stone-100/90`} onClick={() => handleClick()}>
           <div className="flex gap-3 w-32">
             <div className="w-10 h-10 bg-zinc-100 rounded-full flex items-center justify-center">
               <Power

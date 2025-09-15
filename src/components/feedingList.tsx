@@ -25,7 +25,7 @@ export function FeedingList() {
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold">Programar Alimentação</h2>
         <Button
-          className="rounded-full bg-secondary h-10 w-10"
+          className="rounded-full bg-secondary h-10 w-10 cursor-pointer hover:bg-secondary/60"
           onClick={handleAddFeeding}
         >
           <Plus className="text-black" />
@@ -41,7 +41,7 @@ export function FeedingList() {
           />
         ))}
       </div>
-      <Button className="w-full rounded-full bg-secondary text-black mt-2">
+      <Button className="w-full rounded-full bg-secondary text-black mt-2 cursor-pointer hover:bg-secondary/60">
         Salvar
       </Button>
     </div>

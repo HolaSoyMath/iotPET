@@ -41,9 +41,9 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
   }
 
   return (
-    <div className="flex">
-      <div className="grid grid-cols-2 gap-4 mb-3">
-        <div>
+    <div className="flex w-full gap-2 mb-3">
+      <div className="grid grid-cols-2 gap-4 flex-1">
+        <div className="flex-1">
           <p className="mb-2">{index + 1}ª Refeição</p>
           <div className="rounded-full border-1 border-muted-foreground px-2 flex items-center">
             <Clock
@@ -55,8 +55,8 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
             <Input
               ref={timeInputRef}
               className="border-none [&::-webkit-calendar-picker-indicator]:hidden"
-              value={time}
-              placeholder="00:00"
+              value={time || ""}
+              placeholder="--:--"
               onChange={(e) => handleTimeChange(e.target.value)}
               type="time"
               onClick={handleClockClick}
@@ -64,7 +64,7 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
           </div>
         </div>
 
-        <div>
+        <div className="flex-1">
           <p className="mb-2">Quantidade</p>
           <div className="rounded-full border-1 border-muted-foreground px-2 flex items-center">
             <Bone
@@ -80,9 +80,9 @@ export function FeedingItem({ index, time, weight }: FeedingItemProps) {
         </div>
       </div>
       {feedingList.length > 2 && (
-        <div className="flex items-end mb-3">
+        <div className="flex items-end self-end">
           <Button
-            className="bg-transparent border-0 shadow-none"
+            className="bg-transparent border-0 shadow-none p-2 hover:bg-gray-200/60 cursor-pointer"
             onClick={() => deleteItem()}
           >
             <Trash className="text-destructive" />
