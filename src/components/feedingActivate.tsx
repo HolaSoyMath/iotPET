@@ -10,7 +10,8 @@ export function FeedingActivate() {
   async function handleClick() {
     try {
       const payload = isActive ? "OFF" : "ON";
-      const res = await fetch("/api/led", {
+      console.log(payload)
+      const res = await fetch("/api/mosfet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ payload }),

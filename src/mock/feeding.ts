@@ -6,17 +6,14 @@ export type FeedingType = {
 
 export const feeding: FeedingType[] = [
   {
-    id: 1,
     time: '08:00',
     weight: 100,
   },
   {
-    id: 2,
     time: '12:00',
     weight: 300,
   },
   {
-    id: 3,
     time: '18:00',
     weight: 250,
   },
